@@ -9,3 +9,17 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 18ms (Views: 11.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/tasks" for ::1 at 2019-04-08 14:39:12 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 278ms (Views: 269.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-08 14:43:11 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 28ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+
+
