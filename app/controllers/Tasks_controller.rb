@@ -8,7 +8,7 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: task_id)
 
     if @task.nil?
-      head :redirect
+      redirect_to action: "index"
     end
   end
 end
