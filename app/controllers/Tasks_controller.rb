@@ -11,4 +11,8 @@ class TasksController < ApplicationController
       redirect_to action: "index"
     end
   end
+
+  def new
+    @task = Task.new(complete: false, complete_date: "")
+  end
 end
