@@ -15,4 +15,19 @@ class TasksController < ApplicationController
   def new
     @task = Task.new(complete: false, complete_date: "")
   end
+
+  def create
+    task = Task.new(
+      name: params["task"]["name"],
+      description: params["task"]["description"],
+    )
+
+    is_successful = task.save
+
+    if is_successful
+      redirect_to task_path(task.id)
+    else
+      head :not_found
+    end
+  end
 end

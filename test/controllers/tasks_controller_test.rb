@@ -77,7 +77,7 @@ describe TasksController do
 
       new_task = Task.find_by(name: task_hash[:task][:name])
       expect(new_task.description).must_equal task_hash[:task][:description]
-      expect(new_task.completed).must_equal task_hash[:task][:completed]
+      expect(new_task.complete).must_equal task_hash[:task][:complete]
 
       must_respond_with :redirect
       must_redirect_to task_path(new_task.id)
