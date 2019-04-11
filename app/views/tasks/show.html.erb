@@ -1,0 +1,17 @@
+<h2>
+  <%= @task.name %>
+</h2>
+
+<h3>
+  <%= @task.description %>
+</h3>
+
+<p>
+  <%= @task.complete %>
+</p>
+
+<p>
+  <%= @task.complete_date %>
+</p>
+
+<%= link_to "Back to All Tasks", tasks_path %>
