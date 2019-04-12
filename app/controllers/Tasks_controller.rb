@@ -20,6 +20,8 @@ class TasksController < ApplicationController
     task = Task.new(
       name: params["task"]["name"],
       description: params["task"]["description"],
+      complete: params["task"]["complete"],
+      complete_date: params["task"]["complete_date"],
     )
 
     is_successful = task.save
