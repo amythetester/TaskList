@@ -43,13 +43,6 @@ class TasksController < ApplicationController
 
   def update
     task = Task.find_by(id: params[:id])
-    task_params["complete"] = task_params["complete"] != "0" ? true : false
-
-    if task_params["complete"] == true
-      task.update(complete_date: Date.current)
-    elsif task_params["complete"] == false
-      task.update(complete_date: nil)
-    end
 
     if task.nil?
       redirect_to action: "index"
