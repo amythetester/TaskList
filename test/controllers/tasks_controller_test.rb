@@ -80,7 +80,7 @@ describe TasksController do
       expect(new_task.complete).must_equal task_hash[:task][:complete]
 
       must_respond_with :redirect
-      must_redirect_to task_path(new_task.id)
+      must_redirect_to tasks_path
     end
   end
 
@@ -158,7 +158,7 @@ describe TasksController do
       expect(task.complete_date).must_equal Date.current
 
       must_respond_with :redirect
-      must_redirect_to task_path(task.id)
+      must_redirect_to tasks_path
     end
 
     it "can mark a task incomplete" do
@@ -175,7 +175,7 @@ describe TasksController do
       expect(task.complete_date).must_equal nil
 
       must_respond_with :redirect
-      must_redirect_to task_path(task.id)
+      must_redirect_to tasks_path
     end
   end
 end

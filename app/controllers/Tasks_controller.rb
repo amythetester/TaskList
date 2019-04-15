@@ -75,7 +75,7 @@ class TasksController < ApplicationController
     elsif task.complete == false
       task.update(complete_date: nil)
     end
-    redirect_to action: "index"
+    redirect_to tasks_path
   end
 
   private
