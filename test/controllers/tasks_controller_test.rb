@@ -5,7 +5,7 @@ describe TasksController do
   #   you may need to modify this.
   let (:task) {
     Task.create name: "sample task", description: "this is an example for a test",
-                complete: false, complete_date: ""
+                complete: false, complete_date: nil
   }
 
   # Tests for Wave 1
@@ -131,15 +131,10 @@ describe TasksController do
   # Tests for Wave 4
   describe "destroy" do
     it "will delete the task" do
-      # Arrange
       task = Task.create(name: "Watch The Martian", description: "On Netflix", complete: false)
 
       expect {
-
-        # Act
         delete task_path(task.id)
-
-        # Assert
       }.must_change "Task.count", -1
 
       must_respond_with :redirect
@@ -149,6 +144,21 @@ describe TasksController do
 
   # Complete for Wave 4
   describe "toggle_complete" do
-    # Your tests go here
+    it "can mark a task complete" do
+      task = Task.create(name: "Vacuum", description: "Carpeted floors", complete: false, complete_date: nil)
+
+      travel_to Time.zone.local(2019, 4, 16, 01, 04, 44)
+      patch task_path(task.id), params: { task: { complete: true, complete_date: Date.current } }
+      task.reload
+
+      expect(task).wont_be_nil
+      expect(task.name).must_equal "Vacuum"
+      expect(task.description).must_equal "Carpeted floors"
+      expect(task.complete).must_equal true
+      expect(task.complete_date).must_equal Date.current
+
+      must_respond_with :redirect
+      must_redirect_to task_path(task.id)
+    end
   end
 end

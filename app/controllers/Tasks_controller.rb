@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new(complete: false, complete_date: "")
+    @task = Task.new(complete: false, complete_date: nil)
   end
 
   def create
@@ -62,6 +62,10 @@ class TasksController < ApplicationController
       task.destroy
       redirect_to tasks_path
     end
+  end
+
+  def mark_complete
+    task = Task.find_by(id: params[:id])
   end
 
   private
