@@ -6196,3 +6196,536 @@ Processing by TasksController#edit as HTML
 Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/tasks/4" for ::1 at 2019-04-15 10:13:15 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/amywyatt/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:8
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 217ms (Views: 192.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/tasks/4/edit" for ::1 at 2019-04-15 10:13:18 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:37
+  Rendering tasks/edit.html.erb within layouts/application
+  Rendered tasks/edit.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 36ms (Views: 30.1ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/tasks/4/complete" for ::1 at 2019-04-15 10:13:33 -0700
+Processing by TasksController#mark_complete as HTML
+  Parameters: {"authenticity_token"=>"MjbtiWhhnC1gK2lJLQHPdFaAzmtVlaLnBwkSoHR+lvuOFq0LSIoicwN8+pyWPFpoPE33wpr5aRGehV6dVeETAQ==", "id"=>"4"}
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:76
+  [1m[36mTask Update (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "complete" = $1, "complete_date" = $2, "updated_at" = $3 WHERE "tasks"."id" = $4[0m  [["complete", false], ["complete_date", nil], ["updated_at", "2019-04-15 17:13:33.494081"], ["id", 4]]
+  ↳ app/controllers/tasks_controller.rb:76
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:76
+Redirected to http://localhost:3000/tasks/4/edit
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/tasks/4/edit" for ::1 at 2019-04-15 10:13:33 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:37
+  Rendering tasks/edit.html.erb within layouts/application
+  Rendered tasks/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 19ms (Views: 15.9ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/tasks/4/complete" for ::1 at 2019-04-15 10:13:34 -0700
+Processing by TasksController#mark_complete as HTML
+  Parameters: {"authenticity_token"=>"RRCI1El3+mkGF+NxGnivZqlP4OXaagpkDTrD5z/ypsL5MMhWaZxEN2VAcKShRTp6w4LZTBUGwZKUto/aHm0jOA==", "id"=>"4"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:74
+  [1m[36mTask Update (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "complete" = $1, "complete_date" = $2, "updated_at" = $3 WHERE "tasks"."id" = $4[0m  [["complete", true], ["complete_date", "2019-04-15"], ["updated_at", "2019-04-15 17:13:34.274887"], ["id", 4]]
+  ↳ app/controllers/tasks_controller.rb:74
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:74
+Redirected to http://localhost:3000/tasks/4/edit
+Completed 302 Found in 6ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/tasks/4/edit" for ::1 at 2019-04-15 10:13:34 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:37
+  Rendering tasks/edit.html.erb within layouts/application
+  Rendered tasks/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 20ms (Views: 17.7ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/tasks/4/complete" for ::1 at 2019-04-15 10:13:35 -0700
+Processing by TasksController#mark_complete as HTML
+  Parameters: {"authenticity_token"=>"6j9CArwP/PNUQRUfWszle6lnth2pOqFJ3qpRLs/Tei9WHwKAnORCrTcWhsrh8XBnw6qPtGZWar9HJh0T7kz/1Q==", "id"=>"4"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:76
+  [1m[36mTask Update (0.3ms)[0m  [1m[33mUPDATE "tasks" SET "complete" = $1, "complete_date" = $2, "updated_at" = $3 WHERE "tasks"."id" = $4[0m  [["complete", false], ["complete_date", nil], ["updated_at", "2019-04-15 17:13:35.196728"], ["id", 4]]
+  ↳ app/controllers/tasks_controller.rb:76
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:76
+Redirected to http://localhost:3000/tasks/4/edit
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/tasks/4/edit" for ::1 at 2019-04-15 10:13:35 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:37
+  Rendering tasks/edit.html.erb within layouts/application
+  Rendered tasks/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 21ms (Views: 17.9ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/tasks/4/complete" for ::1 at 2019-04-15 10:13:36 -0700
+Processing by TasksController#mark_complete as HTML
+  Parameters: {"authenticity_token"=>"fNJNirMtx+QdshcCmb2NnBiRL3NoQQLvzUDUOfcwk37A8g0Ik8Z5un7lhNcigBiAclwW2qctyRlUzJgE1q8WhA==", "id"=>"4"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:74
+  [1m[36mTask Update (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "complete" = $1, "complete_date" = $2, "updated_at" = $3 WHERE "tasks"."id" = $4[0m  [["complete", true], ["complete_date", "2019-04-15"], ["updated_at", "2019-04-15 17:13:36.056350"], ["id", 4]]
+  ↳ app/controllers/tasks_controller.rb:74
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:74
+Redirected to http://localhost:3000/tasks/4/edit
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/tasks/4/edit" for ::1 at 2019-04-15 10:13:36 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:37
+  Rendering tasks/edit.html.erb within layouts/application
+  Rendered tasks/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 20ms (Views: 17.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tasks/4" for ::1 at 2019-04-15 10:13:53 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:8
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 27ms (Views: 21.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 10:13:55 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 29ms (Views: 24.1ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/tasks/4/complete" for ::1 at 2019-04-15 10:13:58 -0700
+Processing by TasksController#mark_complete as HTML
+  Parameters: {"authenticity_token"=>"9jx/3C0ZGY7E99IgxjAU6nhp0nTMXifHP0gR18cN639KHD9eDfKn0KegQfV9DYH2EqTr3QMy7DGmxF3q5pJuhQ==", "id"=>"4"}
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:76
+  [1m[36mTask Update (0.3ms)[0m  [1m[33mUPDATE "tasks" SET "complete" = $1, "complete_date" = $2, "updated_at" = $3 WHERE "tasks"."id" = $4[0m  [["complete", false], ["complete_date", nil], ["updated_at", "2019-04-15 17:13:58.673517"], ["id", 4]]
+  ↳ app/controllers/tasks_controller.rb:76
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:76
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 10:13:58 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 38ms (Views: 34.8ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/tasks/4/complete" for ::1 at 2019-04-15 10:13:59 -0700
+Processing by TasksController#mark_complete as HTML
+  Parameters: {"authenticity_token"=>"cFIfF56iFW4CigW3eYcBzNvmtkP/6spgih/Y6KVkOkzMcl+VvkmrMGHdlmLCupTQsSuP6jCGAZYTk5TVhPu/tg==", "id"=>"4"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:74
+  [1m[36mTask Update (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "complete" = $1, "complete_date" = $2, "updated_at" = $3 WHERE "tasks"."id" = $4[0m  [["complete", true], ["complete_date", "2019-04-15"], ["updated_at", "2019-04-15 17:13:59.845257"], ["id", 4]]
+  ↳ app/controllers/tasks_controller.rb:74
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:74
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 10:13:59 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 10:14:18 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 10:14:34 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 23ms (Views: 19.6ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/tasks/4/complete" for ::1 at 2019-04-15 10:14:50 -0700
+Processing by TasksController#mark_complete as HTML
+  Parameters: {"authenticity_token"=>"eLXbdu/rZzlWGu+Xj2N2Vz5SbLxvA2lYOgonBtgGPRrElZv0zwDZZzVNfEI0XuNLVJ9VFaBvoq6jhms7+Zm44A==", "id"=>"4"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:76
+  [1m[36mTask Update (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "complete" = $1, "complete_date" = $2, "updated_at" = $3 WHERE "tasks"."id" = $4[0m  [["complete", false], ["complete_date", nil], ["updated_at", "2019-04-15 17:14:50.122619"], ["id", 4]]
+  ↳ app/controllers/tasks_controller.rb:76
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:76
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 10:14:50 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 26ms (Views: 22.2ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/tasks/4/complete" for ::1 at 2019-04-15 10:14:50 -0700
+Processing by TasksController#mark_complete as HTML
+  Parameters: {"authenticity_token"=>"0Fg2DCF2KeCxuMsNlcoJqqMF4ZleXqHWNXAR/5hoR1VseHaOAZ2XvtLvWNgu95y2ycjYMJEyaiCs/F3CuffCrw==", "id"=>"4"}
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:74
+  [1m[36mTask Update (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "complete" = $1, "complete_date" = $2, "updated_at" = $3 WHERE "tasks"."id" = $4[0m  [["complete", true], ["complete_date", "2019-04-15"], ["updated_at", "2019-04-15 17:14:50.719803"], ["id", 4]]
+  ↳ app/controllers/tasks_controller.rb:74
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:74
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 10:14:50 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/tasks/4/complete" for ::1 at 2019-04-15 10:14:51 -0700
+Processing by TasksController#mark_complete as HTML
+  Parameters: {"authenticity_token"=>"cLR2/Rd84Pube4u5JayUqldmTQSCY32VGaP34osxtOPMlDZ/N5depfgsGGyekQG2Pat0rU0PtmOAL7vfqq4xGQ==", "id"=>"4"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:76
+  [1m[36mTask Update (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "complete" = $1, "complete_date" = $2, "updated_at" = $3 WHERE "tasks"."id" = $4[0m  [["complete", false], ["complete_date", nil], ["updated_at", "2019-04-15 17:14:51.168830"], ["id", 4]]
+  ↳ app/controllers/tasks_controller.rb:76
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:76
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 10:14:51 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 32ms (Views: 28.6ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/tasks/4/complete" for ::1 at 2019-04-15 10:14:51 -0700
+Processing by TasksController#mark_complete as HTML
+  Parameters: {"authenticity_token"=>"q8OOsd4d1dbfcJPQSJJj1oSeCQA9ZEfVVkFKgPe6DM8X484z/vZriLwnAAXzr/bK7lMwqfIIjCPPzQa91iWJNQ==", "id"=>"4"}
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:74
+  [1m[36mTask Update (0.3ms)[0m  [1m[33mUPDATE "tasks" SET "complete" = $1, "complete_date" = $2, "updated_at" = $3 WHERE "tasks"."id" = $4[0m  [["complete", true], ["complete_date", "2019-04-15"], ["updated_at", "2019-04-15 17:14:51.544504"], ["id", 4]]
+  ↳ app/controllers/tasks_controller.rb:74
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:74
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 10:14:51 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/tasks/4/complete" for ::1 at 2019-04-15 10:14:52 -0700
+Processing by TasksController#mark_complete as HTML
+  Parameters: {"authenticity_token"=>"C5kUDNeXzoUkB2ptVxSGAXI+shWzu008KWbAhyyYaEu3uVSO93xw20dQ+bjsKRMdGPOLvHzXhsqw6oy6DQftsQ==", "id"=>"4"}
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:76
+  [1m[36mTask Update (0.6ms)[0m  [1m[33mUPDATE "tasks" SET "complete" = $1, "complete_date" = $2, "updated_at" = $3 WHERE "tasks"."id" = $4[0m  [["complete", false], ["complete_date", nil], ["updated_at", "2019-04-15 17:14:52.109386"], ["id", 4]]
+  ↳ app/controllers/tasks_controller.rb:76
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:76
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 6ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 10:14:52 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/tasks/4/complete" for ::1 at 2019-04-15 10:14:52 -0700
+Processing by TasksController#mark_complete as HTML
+  Parameters: {"authenticity_token"=>"3Zr6G/9Ck6aKNX7pfpwKwpTdSjTzufZliiuAhRuOO1hhurqZ36kt+Oli7TzFoZ/e/hBznTzVPZMTp8y4OhG+og==", "id"=>"4"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:68
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:74
+  [1m[36mTask Update (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "complete" = $1, "complete_date" = $2, "updated_at" = $3 WHERE "tasks"."id" = $4[0m  [["complete", true], ["complete_date", "2019-04-15"], ["updated_at", "2019-04-15 17:14:52.625384"], ["id", 4]]
+  ↳ app/controllers/tasks_controller.rb:74
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:74
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 10:14:52 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 26ms (Views: 23.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks/4" for ::1 at 2019-04-15 10:18:26 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:8
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 29ms (Views: 24.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 10:18:28 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks/new" for ::1 at 2019-04-15 10:18:30 -0700
+Processing by TasksController#new as HTML
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 29ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tasks" for ::1 at 2019-04-15 10:18:38 -0700
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GCpRZ1It6hzSX6sDnppBatlCQgmvml9ECShVKyXGbkSzrTLqRJQmfOcArHbU9oEdCDIwiZWTg9dATSKLkmwiVQ==", "task"=>{"name"=>"Test", "description"=>"Test"}, "commit"=>"Add Task"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:27
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test"], ["description", "Test"], ["created_at", "2019-04-15 17:18:38.477249"], ["updated_at", "2019-04-15 17:18:38.477249"]]
+  ↳ app/controllers/tasks_controller.rb:27
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:27
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 10:18:38 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-04-15 12:40:23 -0700
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/amywyatt/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 209ms (Views: 194.1ms | ActiveRecord: 5.2ms)
+
+
+Started DELETE "/tasks/5" for ::1 at 2019-04-15 12:40:39 -0700
+Processing by TasksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"vEctkDAVmo96xS0v47ANJPoLKQ3Ddpk+AX3xwJTXAboAZ20SEP4k0RmSvvpYjZg4kMYQpAwaUsiY8b39tUiEQA==", "id"=>"5"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:57
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:62
+  [1m[36mTask Destroy (1.3ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/tasks_controller.rb:62
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:62
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 9ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 12:40:39 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 23ms (Views: 19.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 12:41:10 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tasks/6" for ::1 at 2019-04-15 12:41:20 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:8
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 32ms (Views: 26.3ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/tasks/6" for ::1 at 2019-04-15 12:41:21 -0700
+Processing by TasksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oWu8igEOBlW8Jk7G1RD73YFZYFGK7pIOmoll67SEKowdS/wIIeW4C99x3RNuLW7B65RZ+EWCWfgDBSnWlRuvdg==", "id"=>"6"}
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:57
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:62
+  [1m[36mTask Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/tasks_controller.rb:62
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:62
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 5ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-15 12:41:21 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."name" ASC[0m
+  ↳ app/views/tasks/index.html.erb:6
+  Rendered tasks/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tasks/3" for ::1 at 2019-04-15 12:41:39 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:8
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 30ms (Views: 25.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tasks/3" for ::1 at 2019-04-15 12:42:37 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:8
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (232.1ms)
+Completed 500 Internal Server Error in 241ms (ActiveRecord: 0.4ms)
+
+
+
+NameError - undefined local variable or method `task' for #<#<Class:0x00007fec1025bee0>:0x00007fec11e7c598>
+Did you mean?  @task:
+  app/views/tasks/show.html.erb:17:in `_app_views_tasks_show_html_erb__3608826600799455768_70325944706900'
+
+Started POST "/__better_errors/bf81c5e16bcab9ed/variables" for ::1 at 2019-04-15 12:42:38 -0700
+Started GET "/tasks/3" for ::1 at 2019-04-15 12:42:45 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:8
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 20ms (Views: 16.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks/3/edit" for ::1 at 2019-04-15 12:42:57 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:37
+  Rendering tasks/edit.html.erb within layouts/application
+  Rendered tasks/edit.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 40ms (Views: 34.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks/3" for ::1 at 2019-04-15 12:43:01 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:8
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 32ms (Views: 26.5ms | ActiveRecord: 0.3ms)
+
+
