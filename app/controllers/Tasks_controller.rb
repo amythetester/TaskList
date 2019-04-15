@@ -69,13 +69,13 @@ class TasksController < ApplicationController
     task.toggle(:complete)
 
     if task.nil?
-      redirect_to action: "index"
+      redirect_to tasks_path
     elsif task.complete == true
       task.update(complete_date: Date.current)
     elsif task.complete == false
       task.update(complete_date: nil)
     end
-    redirect_to tasks_path
+    redirect_back fallback_location: task_path(task.id)
   end
 
   private

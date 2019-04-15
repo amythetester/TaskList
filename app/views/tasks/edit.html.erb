@@ -9,14 +9,18 @@
   <%= f.text_field :name %>
   <%= f.label :description %>
   <%= f.text_field :description %>
-
-  <%= f.submit "Update Task", class: "task-form__submit-btn" %>
-
+  <%= f.label :complete_date %>
+  <%= f.text_field :complete_date, readonly: true %>
+  
   <% if @task.complete == false %>
     <%= link_to "Mark Complete", mark_complete_path(@task.id), method: :patch %>
   <% else %>
     <%= link_to "Unmark Complete", mark_complete_path(@task.id), method: :patch %>
   <% end %>
-  <%= link_to "Cancel Changes", task_path %>
 
+  <br><br>
+
+  <%= f.submit "Update Task", class: "task-form__submit-btn" %>
+
+  <%= link_to "Cancel Changes", task_path %>
 <% end %>
