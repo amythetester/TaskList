@@ -66,6 +66,19 @@ class TasksController < ApplicationController
 
   def mark_complete
     task = Task.find_by(id: params[:id])
+    task.toggle(:complete)
+
+    if task.nil?
+      redirect_to action: "index"
+    elsif task.complete == true
+      task.update(complete_date: Date.current)
+      redirect_to task_path(task.id)
+    elsif task.complete == false
+      task.update(complete_date: nil)
+      redirect_to task_path(task.id)
+    else
+      redirect_to action: "index"
+    end
   end
 
   private

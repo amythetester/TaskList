@@ -5,8 +5,9 @@
   <li>
     NAME: <%= task.name %>, 
     DESCRIPTION: <%= task.description %>,
-    COMPLETE?: <%= task.complete %>,
     COMPLETION DATE: <%= task.complete_date %>
+    <%= link_to "View Task", task_path(task.id) %>
+    <%= link_to "Delete", task_path(task.id), method: :delete %>
   </li>
 <% end %>
 </ul>

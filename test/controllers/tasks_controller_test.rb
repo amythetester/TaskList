@@ -142,13 +142,13 @@ describe TasksController do
     end
   end
 
-  # Complete for Wave 4
+  # Tests for Wave 4
   describe "toggle_complete" do
     it "can mark a task complete" do
       task = Task.create(name: "Vacuum", description: "Carpeted floors", complete: false, complete_date: nil)
 
       travel_to Time.zone.local(2019, 4, 16, 01, 04, 44)
-      patch task_path(task.id), params: { task: { complete: true, complete_date: Date.current } }
+      patch mark_complete_path(task.id)
       task.reload
 
       expect(task).wont_be_nil
@@ -156,6 +156,23 @@ describe TasksController do
       expect(task.description).must_equal "Carpeted floors"
       expect(task.complete).must_equal true
       expect(task.complete_date).must_equal Date.current
+
+      must_respond_with :redirect
+      must_redirect_to task_path(task.id)
+    end
+
+    it "can mark a task incomplete" do
+      task = Task.create(name: "Vacuum", description: "Carpeted floors", complete: true, complete_date: nil)
+
+      travel_to Time.zone.local(2019, 4, 16, 01, 04, 44)
+      patch mark_complete_path(task.id)
+      task.reload
+
+      expect(task).wont_be_nil
+      expect(task.name).must_equal "Vacuum"
+      expect(task.description).must_equal "Carpeted floors"
+      expect(task.complete).must_equal false
+      expect(task.complete_date).must_equal nil
 
       must_respond_with :redirect
       must_redirect_to task_path(task.id)
