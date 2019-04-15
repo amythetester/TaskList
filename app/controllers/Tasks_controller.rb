@@ -32,4 +32,18 @@ class TasksController < ApplicationController
       head :not_found
     end
   end
+
+  def edit
+    @task = Task.find_by(id: params[:id])
+
+    if @task.nil?
+      redirect_to action: "index"
+    end
+  end
+
+  private
+
+  def task_params
+    return params.require(:task).permit(:name, :description, :complete, :complete_date)
+  end
 end

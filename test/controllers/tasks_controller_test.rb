@@ -87,16 +87,16 @@ describe TasksController do
   # Tests for Wave 3
   describe "edit" do
     it "can get the edit page for an existing task" do
-      get edit_task_path
+      new_task = Task.create(name: "Watch The Martian", description: "On Netflix", complete: false)
+
+      get edit_task_path(new_task.id)
 
       must_respond_with :success
     end
 
     it "will respond with redirect when attempting to edit a nonexistant task" do
-      # Act
       get edit_task_path(-1)
 
-      # Assert
       must_respond_with :redirect
     end
   end
