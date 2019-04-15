@@ -7,6 +7,7 @@
     DESCRIPTION: <%= task.description %>,
     COMPLETION DATE: <%= task.complete_date %>
     <%= link_to "View Task", task_path(task.id) %>
+    <%= link_to "Mark Complete", mark_complete_path(task.id), method: :patch %>
     <%= link_to "Delete", task_path(task.id), method: :delete %>
   </li>
 <% end %>
