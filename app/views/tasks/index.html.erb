@@ -1,5 +1,7 @@
 <h2>Amy's Task list</h2>
 
+<h3><%= link_to "Add Task", new_task_path %></h3>
+
 <ul>
 <% @tasks.each do |task| %>
   <li>
@@ -7,7 +9,11 @@
     DESCRIPTION: <%= task.description %>,
     COMPLETION DATE: <%= task.complete_date %>
     <%= link_to "View Task", task_path(task.id) %>
-    <%= link_to "Mark Complete", mark_complete_path(task.id), method: :patch %>
+    <% if task.complete == false %>
+      <%= link_to "Mark Complete", mark_complete_path(task.id), method: :patch %>
+    <% else %>
+      <%= link_to "Unmark Complete", mark_complete_path(task.id), method: :patch %>
+    <% end %>
     <%= link_to "Delete", task_path(task.id), method: :delete %>
   </li>
 <% end %>

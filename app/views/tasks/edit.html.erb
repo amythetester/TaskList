@@ -9,11 +9,14 @@
   <%= f.text_field :name %>
   <%= f.label :description %>
   <%= f.text_field :description %>
-  <%= f.label :complete %>
-  <%= f.check_box :complete%>
 
   <%= f.submit "Update Task", class: "task-form__submit-btn" %>
 
+  <% if @task.complete == false %>
+    <%= link_to "Mark Complete", mark_complete_path(@task.id), method: :patch %>
+  <% else %>
+    <%= link_to "Unmark Complete", mark_complete_path(@task.id), method: :patch %>
+  <% end %>
   <%= link_to "Cancel Changes", task_path %>
 
 <% end %>
