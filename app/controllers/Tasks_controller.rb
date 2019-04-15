@@ -41,6 +41,18 @@ class TasksController < ApplicationController
     end
   end
 
+  def update
+    task = Task.find_by(id: params[:id])
+
+    if task.nil?
+      redirect_to action: "index"
+    elsif task.update(task_params)
+      redirect_to task_path(task.id)
+    else
+      redirect_to action: "index"
+    end
+  end
+
   private
 
   def task_params
