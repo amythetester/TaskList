@@ -130,8 +130,21 @@ describe TasksController do
 
   # Tests for Wave 4
   describe "destroy" do
-    # Your tests go here
+    it "will delete the task" do
+      # Arrange
+      task = Task.create(name: "Watch The Martian", description: "On Netflix", complete: false)
 
+      expect {
+
+        # Act
+        delete task_path(task.id)
+
+        # Assert
+      }.must_change "Task.count", -1
+
+      must_respond_with :redirect
+      must_redirect_to tasks_path
+    end
   end
 
   # Complete for Wave 4
